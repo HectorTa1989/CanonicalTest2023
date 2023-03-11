@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+overrid_dh_install:
+	dh_install testing.sh usr/bin/
+
+override_dh_auto_clean:
+	[ ! -f Makefile ] || $(MAKE) distclean
+
+override_dh_installdocs:
+	dh_installdocs NEWS
